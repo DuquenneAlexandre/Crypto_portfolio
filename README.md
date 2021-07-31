@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+CRUD Ruby On Rails and React
 
-Things you may want to cover:
+Using RoR api, this aim of this app is to give user capacity to create/delete/update custom portfolios.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Using coingecko api to gets tokens and prices.
