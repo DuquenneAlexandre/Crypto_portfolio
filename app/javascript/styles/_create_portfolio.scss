@@ -1,0 +1,27 @@
+.PortfolioCreatorForm {
+  border: solid 0.1em;
+  border-color: #FEFFF7;
+  background-color: #FEFFF7;
+  border-bottom-color: grey;
+  width: 400px;
+  padding: 1em;
+  text-align: center;
+  color: #0077BC;
+}
+.PortfolioCreatorForm_name {
+  text-align: center;
+}
+.PortfolioCreatorForm_description {
+    text-align: center;
+}
+
+.SubPortfolioButton {
+  color: white;
+  background-color: #76BC43;
+  border-color: #76BC43;
+  border-radius: 0.1em;
+}
+
+.SubPortfolioButton:hover {
+  opacity: 0.5;
+}

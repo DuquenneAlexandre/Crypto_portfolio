@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  coin_name: MyString
+  coin_identificator: MyString
+  coin_symbol: MyString
+  slug: MyString
+  portfolio: one
+
+two:
+  coin_name: MyString
+  coin_identificator: MyString
+  coin_symbol: MyString
+  slug: MyString
+  portfolio: two

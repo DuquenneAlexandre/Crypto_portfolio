@@ -1,0 +1,127 @@
+@font-face {
+  font-family: "kanit";
+  src: local("kanit"),
+  url("../components/fonts/Kanit-SemiBold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+body {
+  font-family: "kanit";
+  background: rgba(0, 0, 0, 0) linear-gradient(139.73deg, rgb(229, 253, 255) 0%, rgb(243, 239, 255) 100%) repeat scroll 0% 0%;
+}
+
+.GlobalContainer {
+  display: flex;
+}
+
+.Delete_action:hover {
+  opacity: 0.5;
+}
+
+.OnePortfolioContainer {
+  border: solid 0.1em;
+  border-color: #FEFFF7;
+  background-color: #FEFFF7;
+  border-bottom-color: grey;
+  width: 400px;
+  padding: 1em;
+  text-align: center;
+}
+
+.data_container {
+  text-decoration: none;
+  color: #0077BC;
+}
+.data_container:hover {
+  opacity: 0.5;
+}
+
+.buttons_container {
+  display: flex;
+}
+
+.label_currencies {
+
+}
+
+.label_amount {
+
+}
+
+.Port_by_id_global_container {
+  display: flex;
+}
+.Portfolio_details_container {
+  border: solid 0.1em;
+  border-color: #FEFFF7;
+  background-color: #FEFFF7;
+  border-radius: 1em;
+  width: 400px;
+  padding: 1em;
+  text-align: center;
+
+}
+
+.Portfolio_details_name {
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+
+.Portfolio_details_description {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.Portfolio_details_value {
+  margin-bottom: 10px;
+  font-size: 26px;
+  border: solid 0.1em;
+  border-radius: 1em;
+  border-color: #BFE3DA;
+  background-color: #BFE3DA;
+  color: #3D3D3D;
+}
+
+.DeleteX {
+  background-color: #DE231D;
+  border-radius: 50%;
+  height: 21px;
+}
+
+.DeleteX:hover {
+  opacity: 0.5;
+}
+
+.CoinsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 150px;
+}
+
+.wrapper_logo_tag {
+  cursor: pointer;
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  height: 48px;
+  padding: 0px 16px;
+  font-size: 16px;
+  background-color: transparent;
+  color: rgb(122, 110, 170);
+  box-shadow: none;
+  flex-shrink: 0;
+  font-family: kanit;
+
+}
+
+.wrapper_logo_tag:hover {
+  background-color: rgb(239, 244, 245);
+}
+
+
+.logo {
+
+}
+.tag {
+  padding: 1em;
+}

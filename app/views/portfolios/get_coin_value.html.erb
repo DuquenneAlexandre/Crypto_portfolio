@@ -1,0 +1,21 @@
+<h1>Portfolios#get_coin_value</h1>
+<%= form_with url: "/get_coin_value" do |form| %>
+  <label name="token_symbol_label">Quantité</label>
+  <input name="token_symbol"/>
+  <label name="token_choosen_label">Token name</label>
+  <input name="token_choosen"/>
+  <button type="submit">Submit</button>
+<% end %>
+
+<% if @Portfolio_value != 400 %>
+  <%= @Portfolio_value %> USD
+<% end %>
+
+<label for="token-select">Choose a token:</label>
+<select id="token-select" name="token_choosen">
+<% @tokens.each do |token| %>
+<option value="">bitcoin</option>
+  <option name="token_choosen" value=<%= token["id"] %>><%= token["id"] %></option>
+<% end %>
+</select>
+<a href="/portfolios/index"> Return_home </a>
