@@ -2,7 +2,6 @@ import React from 'react'
 
 const Coins_one_byone_details = (props) => {
   const {onecoion} = props
-  console.log(Object.keys(onecoion.coin_name))
   return (
     <div className="CoinsContainer">
     <div key={onecoion.coin_name}>{onecoion.coin_name}</div>

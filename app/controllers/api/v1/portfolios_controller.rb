@@ -2,6 +2,7 @@ module Api
   module V1
     class PortfoliosController < ApplicationController
       protect_from_forgery with: :null_session
+      before_action :api_authent_check
 
       def index
         render json: Portfolio.all
@@ -70,6 +71,18 @@ module Api
           :coin_quantity,
           :portfolio_id)
       end
+
+      private
+      def api_authent_check
+      mafile = JSON.parse(File.read('my.json'))
+        if request.headers["ApiKey"] != mafile["ApiKey"]
+          render json: "ApiKey unroconized or missing" and return
+        end
+        if request.headers["ApiSecret"] != mafile["ApiSecret"]
+          render json: "Api Secret unroconized or missing" and return
+        end
+      end
+
     end
   end
 end

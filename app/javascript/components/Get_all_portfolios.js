@@ -8,21 +8,37 @@ import Create_proftolio_form from './Create_proftolio_form'
 const Get_all_portfolios = (props) => {
   const portfolio_to_delete = props.location.removeId
   const [portfolios, setPortfolios] = useState([]);
+  const customData = require('../../../my.json');
 
     if (typeof props.location.removeId != 'undefined') {
       const create_data = {"id":portfolio_to_delete}
-        axios.post('http://localhost:3000/api/v1/portfolios/portfolio_delete', create_data).then(res => {
+      axios({
+        url: 'http://localhost:3000/api/v1/portfolios/portfolio_delete',
+        method: 'post',
+        data: create_data,
+        headers: {
+          'ApiKey': customData["ApiKey"],
+          'ApiSecret': customData["ApiSecret"]
+        }
+     }).then(res => {
           window.location.reload(false);
         })
         }
 
     useEffect(() => {
-      axios.get(`http://localhost:3000/api/v1/portfolios/index`)
-      .then(res => {
+    axios({
+    url: 'http://localhost:3000/api/v1/portfolios/index',
+    method: 'get',
+    headers: {
+      'ApiKey': customData["ApiKey"],
+      'ApiSecret': customData["ApiSecret"]
+    }
+ })
+    .then(res => {
         setPortfolios(res.data);
+        console.log(res.data)
       })
       }, []);
-
 
   return (
     <div>

@@ -5,6 +5,7 @@ import axios from 'axios'
 const Create_proftolio_form = () => {
   const [portname, setPortname] = useState();
   const [portdescription, setDescription] = useState();
+  const customData = require('../../../my.json');
 
   function handleChangeName(e) {
     setPortname(e.target.value)
@@ -17,11 +18,18 @@ const Create_proftolio_form = () => {
   const submit = e => {
     e.preventDefault();
     const create_data = {"name": portname, "description": portdescription}
-    console.log(create_data)
-      axios.post('http://localhost:3000/api/v1/portfolios/new', create_data).then(res => {
-           window.location.reload(false);
-      })
-  }
+    axios({
+      url: 'http://localhost:3000/api/v1/portfolios/new',
+      method: 'post',
+      data: create_data,
+      headers: {
+        'ApiKey': customData["ApiKey"],
+        'ApiSecret': customData["ApiSecret"]
+      }
+   }).then(res => {
+            window.location.reload(false);
+       })
+   }
 
   return (
     <div>

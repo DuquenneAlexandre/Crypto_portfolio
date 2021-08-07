@@ -7,21 +7,41 @@ import DeleteIcon from '@material-ui/icons/Delete'
 const Display_portfolio_details = (props) => {
   const {portfolioDetails} = props
   const [portfolios, setPortfolios] = useState([]);
+  const customData = require('../../../my.json');
 
-useEffect(() => {
-  axios.post('http://localhost:3000/api/v1/portfolios/portofolio_details', portfolioDetails).then(res => {
+  useEffect(() => {
+    axios({
+      url: 'http://localhost:3000/api/v1/portfolios/portofolio_details',
+      method: 'post',
+      data: portfolioDetails,
+      headers: {
+        'ApiKey': customData["ApiKey"],
+        'ApiSecret': customData["ApiSecret"]
+      }
+   }).then(res => {
        setPortfolios(res.data);
   })
   }, []);
+
   const destroy_coins = e => {
     e.preventDefault();
-    const get_values = e.target.value
+    const get_values = e.currentTarget.className
+    console.log(e.currentTarget.className)
+
     const coins_destroyer = {"portfolio_id": portfolioDetails.id,
        "coin_symbol": portfolios.coins[get_values].coin_symbol,
         "coin_name": portfolios.coins[get_values].coin_name,
          "coin_identificator": portfolios.coins[get_values].coin_identificator,
           "coin_quantity": portfolios.coins[get_values].coin_quantity}
-          axios.post('http://localhost:3000/api/v1/portfolios/portfolio_delete_coins', coins_destroyer).then(res => {
+          axios({
+            url: 'http://localhost:3000/api/v1/portfolios/portfolio_delete_coins',
+            method: 'post',
+            data: coins_destroyer,
+            headers: {
+              'ApiKey': customData["ApiKey"],
+              'ApiSecret': customData["ApiSecret"]
+            }
+         }).then(res => {
               window.location.reload(false);
           })
         }
@@ -31,7 +51,7 @@ useEffect(() => {
       return (portfolios.coins.map((p, key) => <>
       <div className="CoinsContainer">
       <Coins_one_byone_details onecoion={p} />
-    <DeleteIcon type="button" value={key} onClick={destroy_coins}/></div>
+    <div type="button" className={key} onClick={destroy_coins}><DeleteIcon /></div></div>
     </>))
     }
 

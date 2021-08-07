@@ -7,9 +7,19 @@ const Portfolio_details = (props) => {
   const [portfolios, setPortfolios] = useState([]);
   const { createparams } = props;
   const create_data = {"id":createparams}
+  const customData = require('../../../my.json');
+
 
   useEffect(() => {
-    axios.post('http://localhost:3000/api/v1/portfolios/portofolio_details', create_data).then(res => {
+    axios({
+      url: 'http://localhost:3000/api/v1/portfolios/portofolio_details',
+      method: 'post',
+      data: create_data,
+      headers: {
+        'ApiKey': customData["ApiKey"],
+        'ApiSecret': customData["ApiSecret"]
+      }
+   }).then(res => {
          setPortfolios(res.data);
     })
     }, []);

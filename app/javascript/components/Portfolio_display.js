@@ -8,11 +8,20 @@ import DeleteIcon from '@material-ui/icons/Delete'
 const Portfolio_display = (props) => {
   const { portfolio } = props;
   const createparams = portfolio.id
+  const customData = require('../../../my.json');
 
   const submitDelete = e => {
     e.preventDefault();
     const create_data = {"id":createparams}
-    axios.post('http://localhost:3000/api/v1/portfolios/portfolio_delete', create_data).then(res => {
+    axios({
+        url: 'http://localhost:3000/api/v1/portfolios/portfolio_delete',
+        method: 'post',
+        data: create_data,
+        headers: {
+          'ApiKey': customData["ApiKey"],
+          'ApiSecret': customData["ApiSecret"]
+        }
+     }).then(res => {
        window.location.reload(false);
   })
 }

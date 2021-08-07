@@ -12,9 +12,17 @@ const Find_portfolo_by_id = (props) => {
   const [matchingCounter, SetMatchingCounter] = useState()
   const [bgcolor, SetBgcolor] = useState('#f28997')
   const [bgcoloramout, SetBgcoloramout] = useState('#f28997')
+  const customData = require('../../../my.json');
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/v1/portfolios/get_coin_list`)
+    axios({
+          url: 'http://localhost:3000/api/v1/portfolios/get_coin_list',
+          method: 'get',
+          headers: {
+            'ApiKey': customData["ApiKey"],
+            'ApiSecret': customData["ApiSecret"]
+          }
+       })
     .then(res => {
       SetCurrencyDetails(res.data);
     })
@@ -46,7 +54,16 @@ const Find_portfolo_by_id = (props) => {
     "coin_name": currencydetailsFromForm[0]["name"],
     "coin_quantity": amout,
     "portfolio_id": props.match.params.id}
-    axios.post('http://localhost:3000/api/v1/portfolios/coins_new', submit_hash_datas).then(res => {
+    console.log(submit_hash_datas)
+    axios({
+      url: 'http://localhost:3000/api/v1/portfolios/coins_new',
+      method: 'post',
+      data: submit_hash_datas,
+      headers: {
+        'ApiKey': customData["ApiKey"],
+        'ApiSecret': customData["ApiSecret"]
+      }
+   }).then(res => {
       window.location.reload(false);
     })
   }
