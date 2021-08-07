@@ -5,8 +5,8 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # ignore keys
-./my.json
-./api_test.rb
+my.json
+api_test.rb
 
 # Ignore bundler config.
 /.bundle
